@@ -86,10 +86,10 @@ WSGI_APPLICATION = 'Online_Blog_CMS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'online_blog_cms',
+        'NAME': 'BLOGCMS',
         'USER':'root',
-        'PASSWORD':'sww000',
-        'HOST':'',
+        'PASSWORD':'sww18260030710',
+        'HOST':'127.0.0.1',
     }
 }
 
