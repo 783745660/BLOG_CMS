@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<div class="container">
+    <nav class="navbar nav-default" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="http://songwen.top/blog/index">
+                <img src="{% static 'images/logoko.png' %}" width="100px">
+            </a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav" role="navigation">
+                <li><a href="{% url 'home' %}">Home</a></li>
+{#                <li><a href="{% url 'blog:index' %}">BLOG</a></li>#}
+                <li><a href="{% url 'article:articles_titles' %}">博客</a></li>
+                <li><a href="{% url 'image:falls_images' %}">美图</a> </li>
+                <li><a href="{% url 'course:courses_list' %}">课程</a> </li>
+                <li><a href="{% url 'course:about' %}">关于本站</a> </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 10px">
+                {% if request.user.is_authenticated %}
+                    <li>
+                        <div class="dropdown" style="margin-top: 8px">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown">
+                            {{ request.user.username }}<span class="create"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'account:password_change' %}">修改密码</a></li>
+                                <li><a href="{% url 'account:my_information' %}">我的信息</a></li>
+                                <li><a href="{% url 'article:article_column' %}">后台管理</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="{% url 'account:logout' %}">Logout</a> </li>
+                {% else %}
+                    <li><a href="{% url 'account:login' %}">Login</a><li>
+                    <li><a href="{% url 'account:register' %}">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>
+

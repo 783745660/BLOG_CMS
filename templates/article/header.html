@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="http://songwen.top/blog/index/"><img width="60px" src="{% static 'images/logoko.png' %}"></a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav" role="tablist">
+                <li><a href="{% url 'article:article_column' %}">博客管理</a></li>
+                <li><a href="{% url 'image:list_images' %}">图片管理</a></li>
+                <li><a href="{% url 'course:courses_manage' %}">课程管理</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="margin-right:10px">
+{#                <li><a href="{% url 'blog:index' %}">网站首页</a></li>#}
+                <li><a href="{% url 'article:articles_titles' %}">网站首页</a></li>
+                <li><span>{{user.username }}</span></li>
+                <li><a href="{% url 'account:logout' %}">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
