@@ -24,9 +24,9 @@ sys.path.insert(0,os.path.join(BASE_DIR,'extra_apps'))
 SECRET_KEY = 'y&zx)qxcj6mpopeb%wx)(+3q0v6i^bh*&e6n3089x#vw)do1p1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','localhost','songwen.top']
 
 
 # Application definition
