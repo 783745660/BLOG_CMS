@@ -30,7 +30,11 @@ urlpatterns = [
     url(r'^blog/',include('blog.urls')), #以blog开头的url会分发到blog.urls下
     url(r'^account/',include('account.urls')),
     url(r'^article/',include('article.urls')),
+<<<<<<< HEAD
     url(r'^$',TemplateView.as_view(template_name='home.html'),name='home'),
+=======
+    url(r'',TemplateView.as_view(template_name='home.html'),name='home'),
+>>>>>>> 2826ad1d403207cf4d9c32bb2fe5459161f0d2a1
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}), #为media中的每一个静态图片配置好url，可以在前端中用image.url获取图片
     url(r'^image/',include('image.urls')),
     url(r'^course/',include('course.urls')),
