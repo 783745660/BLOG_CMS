@@ -3,6 +3,9 @@
 
 ## 记录一下部署djnago是遇到的坑
 在配置nginx时候，由于没有设置好nginx的启动权限，导致在sites-available中定义的配置文件不起作用，因此需要在nginx的安装位置基于root权限,另外还一小坑就是在配置文件中将proxy_下划线漏掉，花了很近一天的时间..
+由于用nginx监听80端口，而Linux下开启1024以下端口需要root权限，因此在普通用户下开启nginx需要给nginx加root权限
+chown root nginx
+chmod u+s nginx
 ## 项目步骤说明
 该项目可以实现一个博客问答社区，主要功能用户发表文章，文章评论及文章分类等功能，项目由 python 的第三方 web 开源框架 Django 开发完成。
 ## 1. 项目开发环境
