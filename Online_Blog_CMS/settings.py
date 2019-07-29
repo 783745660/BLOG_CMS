@@ -88,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'BLOGCMS',
         'USER':'root',
-        'PASSWORD':'sww18260030710',
+        'PASSWORD':'password',
         'HOST':'127.0.0.1',
     }
 }
@@ -144,7 +144,7 @@ LOGIN_URL = '/account/login/' #在修改用户密码时，如果当前用户没�
 
 EMAIL_HOST = 'smtp.qq.com'
 EMAIL_HOST_USER = "783745660@qq.com"
-EMAIL_HOST_PASSWORD = "arfedoqyblvibfea"
+EMAIL_HOST_PASSWORD = "授权码"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = "783745660@qq.com"
