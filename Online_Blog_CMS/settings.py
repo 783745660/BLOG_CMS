@@ -139,7 +139,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 
 # 使用内置登录方法，增加登录成功后的转向目标
-LOGIN_REDIRECT_URL = '/home/'
+LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/account/login/' #在修改用户密码时，如果当前用户没有登陆，那么就会自动跳转到该url下登陆
 
 EMAIL_HOST = 'smtp.qq.com'
