@@ -99,7 +99,7 @@
     {% most_commented_articles as most_comments %}
     <ul>
         {% for comment_article in most_comments %}
-            <a a href="{{ comment_article.get_content_url }}">{{ comment_article.title }}</a></li>
+            <li a href="{{ comment_article.get_content_url }}">{{ comment_article.title }}</li></li>
         {% endfor %}
     </ul>
     <hr>
