@@ -11,6 +11,7 @@ from .models import ArticleColumn,ArticlePost
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from django.contrib.auth.models import User
 from django.db.models import Count
+from django.db.models import Q #搜索
 
 from .form import CommentForm
 
@@ -125,4 +126,33 @@ def like_article(request):
         except:
             return HttpResponse('no')
 
+        
+def search(request):
+    '''
+    简单搜索
+    :param request:
+    :return:
+    '''
+    q = request.GET.get('q')
+    error_msg = ''
+    if not q:
+        error_msg = "请输入关键词"
+        return render(request, 'article/list/articles_titles_list.html', {'error_msg': error_msg})
 
+    search_articles = ArticlePost.objects.filter(Q(title__icontains=q) | Q(body__icontains=q))
+    paginator = Paginator(search_articles,4) #获得一个分页对象，每页最多4个博客标题对象
+    page_number = request.GET.get('page')   #从页面获取当前的页码
+    try:
+        current_page = paginator.page(page_number) #生成当前页的对象
+        current_page_articles = current_page.object_list #获取当前页的博客
+    except PageNotAnInteger:
+        current_page = paginator.page(1)
+        current_page_articles = current_page.object_list #页码非整，获取第一页博客
+    except EmptyPage:
+        current_page = paginator.page(paginator.num_pages)
+        current_page_articles = current_page.object_list #页码为空，获取最后的页码的博客
+
+    contexts = {'articles':current_page_articles,
+                'page':current_page,
+                }
+    return render(request,  'article/list/articles_titles_list.html',contexts)
