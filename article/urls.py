@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^like-article/$',list_views.like_article,name='like_article'),
     url(r'^article-tag/$',views.article_tag,name='article_tag'),
     url(r'^del_article_tag/$',views.del_article_tag,name='del_article_tag'),
+    url(r'search/$',list_views.search,name='search'),
 ]
