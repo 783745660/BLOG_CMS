@@ -7,6 +7,9 @@
     <p>这里已经{% total_articles %}篇文章供你阅读</p>
 </div>
 <div class="container">
+    {% if error_msg %}
+        <p style="color: red">{{ error_msg }}</p>
+    {% endif %}
     {% for article in articles %}
     <div class="list-group">
         <a href="{{article.get_content_url}}" class="list-group-item active">
@@ -17,6 +20,8 @@
         <p> <span style="margin-right: 10px"><strong>Tags:</strong></span> {{ article.article_tag.all | join:", "}}</p>
         <p class="list-group-item-text">概要:{{article.body|slice:'70'|linebreaks}}</p>
     </div>
+    {% empty %}
+        <div class="no-post">暂时还没有发布的文章！</div>
     {% endfor %}
 {% include "paginator.html" %}
 </div>
