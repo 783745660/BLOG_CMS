@@ -21,6 +21,7 @@
                 <div class="col-md-6 text-left">{{ form.password }}</div>
             </div>
             <input type="submit" class="btn btn-primary btn-group-lg" value="Login">
+            <a href="{% url 'account:password_reset' %}">忘记密码？</a> 
         </form>
     </div>
 {% endblock %}
