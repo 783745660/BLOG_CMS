@@ -50,7 +50,7 @@
         <h3><span class="glyphicon glyphicon-bullhorn"></span> 本文有{{ article.comments.count }}评论</h3>
         {% for comment in article.comments.all %}
         <div>
-            <p><strong>{{ request.user }}</strong> <time class="submit-date">{{ comment.created }}</time> 说:</p>
+            <p><strong>{{ comment.commentator }}</strong> <time class="submit-date">{{ comment.created }}</time> 说:</p>
             <p style="margin-left:40px;">{{ comment.body }}</p>
         </div>
         {% empty %}
