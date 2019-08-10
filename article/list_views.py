@@ -90,6 +90,7 @@ def article_comment(request,id,slug):
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
             new_comment.article = article
+            new_comment.commentator = request.user
             new_comment.save()
             return HttpResponseRedirect(reverse('article:article_content',kwargs={'id':id,'slug':slug}))
     else:
