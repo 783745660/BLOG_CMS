@@ -20,7 +20,7 @@ idna==2.8
 jdcal==1.4
 jieba==0.39
 Markdown==3.1
-markdown2==2.3.7
+markdown2==2.4.0
 MySQL-python==1.2.5
 odfpy==1.4.0
 openpyxl==2.6.1
